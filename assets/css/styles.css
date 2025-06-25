@@ -1,18 +1,4 @@
-/*-----------------------------------*\
-  #style.css
-\*-----------------------------------*/
 
-/**
- * copyright 2023 GAURAV TRIPATHI
- */
-
-
-
-
-
-/*-----------------------------------*\
-  #CUSTOM PROPERTY
-\*-----------------------------------*/
 
 :root {
 
@@ -23,7 +9,7 @@
   --rich-black-fogra-29: hsl(230, 14%, 9%);
   --gray-x-11-gray: hsl(0, 0%, 73%);
   --oxford-blue_a15: hsla(216, 65%, 10%, 0.15);
-  --yellow-green: hsl(86, 54%, 51%);
+  --yellow-green: hsl(185, 84%, 45%);
   --smoky-black: hsl(0, 0%, 6%);
   --black-coral: hsl(231, 6%, 40%);
   --light-gray: hsl(0, 0%, 80%);
@@ -89,14 +75,6 @@
 
 }
 
-
-
-
-
-/*-----------------------------------*\
-  #RESET
-\*-----------------------------------*/
-
 *,
 *::before,
 *::after {
@@ -158,14 +136,6 @@ body {
 ::-webkit-scrollbar-thumb { background-color: hsl(0, 0%, 80%); }
 
 ::-webkit-scrollbar-thumb:hover { background-color: hsl(0, 0%, 70%); }
-
-
-
-
-
-/*-----------------------------------*\
-  #REUSED STYLE
-\*-----------------------------------*/
 
 .container { padding-inline: 16px; }
 
@@ -299,15 +269,6 @@ body {
   opacity: 1;
   transform: translate(0);
 }
-
-
-
-
-
-/*-----------------------------------*\
-  #PRELOADER
-\*-----------------------------------*/
-
 .preload-box {
   position: fixed;
   top: 0;
@@ -340,14 +301,6 @@ body {
 }
 
 .preload-box.loaded .preload-circle { animation-iteration-count: 1; }
-
-
-
-
-
-/*-----------------------------------*\
-  #HEADER
-\*-----------------------------------*/
 
 .header-action { display: none; }
 
@@ -415,13 +368,6 @@ body {
 }
 
 
-
-
-
-/*-----------------------------------*\
-  #HERO
-\*-----------------------------------*/
-
 .hero-list { display: none; }
 
 .hero {
@@ -457,13 +403,6 @@ body {
 
 .hero-banner { margin-block-end: -15%; }
 
-
-
-
-
-/*-----------------------------------*\
-  #ABOUT
-\*-----------------------------------*/
 
 .about .container {
   display: grid;
@@ -522,14 +461,6 @@ body {
 
 .about .btn { margin-block-start: 40px; }
 
-
-
-
-
-/*-----------------------------------*\
-  #STATS
-\*-----------------------------------*/
-
 .stats { padding-block: 0; }
 
 .stats :is(.container, .stats-list)  { display: grid; }
@@ -577,14 +508,6 @@ body {
   0% { box-shadow: 0 0 0 0 var(--yellow-green); }
   100% { box-shadow: 0 0 0 20px transparent; }
 }
-
-
-
-
-
-/*-----------------------------------*\
-  #SERVICE
-\*-----------------------------------*/
 
 .service .section-subtitle {
   max-width: max-content;
@@ -635,14 +558,6 @@ body {
 
 .service-list:last-child .service-item { margin-block-start: 40px; }
 
-
-
-
-
-/*-----------------------------------*\
-  #CTA
-\*-----------------------------------*/
-
 .cta .container {
   display: grid;
   gap: 30px;
@@ -673,14 +588,6 @@ body {
   overflow: hidden;
   background-color: var(--light-gray);
 }
-
-
-
-
-
-/*-----------------------------------*\
-  #BLOG
-\*-----------------------------------*/
 
 .blog { padding-block-end: 60px; }
 
@@ -750,14 +657,6 @@ body {
 
 .blog-card .card-title:is(:hover, :focus-visible) { color: var(--yellow-green); }
 
-
-
-
-
-/*-----------------------------------*\
-  #CONTACT
-\*-----------------------------------*/
-
 .contact {
   padding-block: 40px 120px;
   border-block-start: 1px solid var(--cultured);
@@ -779,14 +678,6 @@ body {
   color: var(--yellow-green);
   --ionicon-stroke-width: 20px;
 }
-
-
-
-
-
-/*-----------------------------------*\
-  #FOOTER
-\*-----------------------------------*/
 
 .footer { background-color: var(--smoky-black); }
 
@@ -916,14 +807,6 @@ body {
   border-color: var(--yellow-green);
 }
 
-
-
-
-
-/*-----------------------------------*\
-  #BACK TO TOP
-\*-----------------------------------*/
-
 .back-top-btn {
   position: fixed;
   bottom: 10px;
@@ -942,49 +825,12 @@ body {
   opacity: 1;
   transform: translateY(-10px);
 }
-
-
-
-
-
-/*-----------------------------------*\
-  #MEDIA QUERIES
-\*-----------------------------------*/
-
-/**
- * responsive for large than 575px screen
- */
-
 @media (min-width: 575px) {
-
-  /**
-   * CUSTOM PROPERTY
-   */
-
   :root {
-
-    /**
-     * typography
-     */
-
     --fs-2: 4.2rem;
 
   }
-
-
-
-  /**
-   * REUSED STYLE
-   */
-
   .btn-secondary { padding-inline: 70px; }
-
-
-
-  /**
-   * HERO
-   */
-
   .hero .container {
     grid-template-columns: 0.8fr 1fr;
     align-items: flex-end;
@@ -1002,65 +848,26 @@ body {
 
   .hero-banner { margin-inline-end: -50%; }
 
-
-
-  /**
-   * ABOUT
-   */
-
   .about-banner .w-100 { max-width: max-content; }
 
   .about-banner .img-2 { margin-inline-start: auto; }
 
 }
 
-
-
-
-
-/**
- * responsive for large than 768px screen
- */
-
 @media (min-width: 768px) {
 
-  /**
-   * CUSTOM PROPERTY
-   */
 
   :root {
-
-    /**
-     * typography
-     */
-
     --fs-3: 3.6rem;
-
-    /**
-     * spacing
-     */
 
     --section-padding: 60px;
 
   }
-
-
-
-  /**
-   * REUSED STYLE
-   */
-
   .container {
     max-width: 850px;
     width: 100%;
     margin-inline: auto;
   }
-
-
-
-  /**
-   * HERO
-   */
   
   .hero { padding-block-start: calc(var(--section-padding) + 110px); }
 
@@ -1091,13 +898,6 @@ body {
     right: 25%;
     width: 90%;
   }
-
-
-
-  /**
-   * ABOUT
-   */
-
   .about { padding-block-start: calc(var(--section-padding) + 80px); }
 
   .about .container {
@@ -1106,21 +906,7 @@ body {
   }
 
   .about-banner .img-2 { margin-inline-start: 0; }
-
-
-
-  /**
-   * STATS
-   */
-
   .stats-list { grid-template-columns: repeat(3, 1fr); }
-
-
-
-  /**
-   * SERVICE
-   */
-
   .service .wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1132,12 +918,6 @@ body {
   .service-list:first-child .service-item:last-child { margin-block-end: 0; }
 
   .service-list:last-child .service-item:first-child { margin-block-start: 0; }
-
-
-
-  /**
-   * CTA
-   */
 
   .cta .container { grid-template-columns: 1fr 0.5fr; }
 
@@ -1155,12 +935,6 @@ body {
 
   .cta-banner { height: 100%; }
 
-
-
-  /**
-   * BLOG & CONTACT
-   */
-
   .blog .title-wrapper {
     grid-template-columns: 1fr 1fr;
     align-items: center;
@@ -1169,12 +943,6 @@ body {
 
   .blog-list,
   .contact-list { grid-template-columns: repeat(3, 1fr); }
-
-
-
-  /**
-   * FOOTER
-   */
 
   .footer-top {
     grid-template-columns: 1fr 1fr;
@@ -1190,51 +958,17 @@ body {
   .social-list { justify-content: flex-end; }
 
 }
-
-
-
-
-
-/**
- * responsive for large than 992px screen
- */
-
 @media (min-width: 992px) {
-
-  /**
-   * CUSTOM PROPERTY
-   */
 
   :root {
 
-    /**
-     * typography
-     */
-
     --fs-2: 5.4rem;
     --fs-3: 3.6rem;
-
-    /**
-     * spacing
-     */
-
     --section-padding: 100px;
 
   }
 
-
-
-  /**
-   * REUSED STYLE
-   */
-
   .container { max-width: 1050px; }
-
-
-
-  /**
-   * HERO
-   */
 
   .hero { padding-block-start: calc(var(--section-padding) + 40px); }
 
@@ -1252,55 +986,23 @@ body {
 
   .hero-banner { right: 20%; }
 
-
-
-  /**
-   * ABOUT
-   */
-
   .about { padding-block-start: calc(var(--section-padding) + 20px); }
 
   .about-banner .img-2 { margin-inline-start: auto; }
 
-
-
-  /**
-   * STATS
-   */
-
   .stats-banner { height: 500px; }
-
-
-
-  /**
-   * SERVICE
-   */
-
   .service .section-title {
     max-width: 23ch;
     margin-inline: auto;
   }
 
   .service .wrapper { gap: 50px; }
-
-
-
-  /**
-   * CONTACT
-   */
-
   .contact-list {
     max-width: 70%;
     margin-inline-start: auto;
   }
 
   .contact { padding-block-end: 40px; }
-
-
-
-  /**
-   * FOOTER
-   */
 
   .footer-top {
     grid-template-columns: 1fr 0.8fr 0.4fr 0.9fr;
@@ -1313,46 +1015,13 @@ body {
   }
 
 }
-
-
-
-
-
-/**
- * responsive for large than 1200px screen
- */
-
 @media (min-width: 1200px) {
-
-  /**
-   * CUSTOM PROPERTY
-   */
-
   :root {
-
-    /**
-     * typography
-     */
-
     --fs-2: 6rem;
     --fs-3: 4rem;
 
   }
-
-
-
-  /**
-   * REUSED STYLE
-   */
-
   .container { max-width: 1200px; }
-
-
-
-  /**
-   * HEADER
-   */
-
   .header .container {
     max-width: unset;
     padding-inline: 35px;
@@ -1404,13 +1073,6 @@ body {
     background-color: var(--white);
     color: var(--rich-black-fogra-29);
   }
-
-
-
-  /**
-   * HERO
-   */
-
   .hero { padding-block-start: calc(var(--section-padding) + 80px); }
 
   .hero-title { margin-block-end: 25px; }
@@ -1421,22 +1083,9 @@ body {
     right: 28%;
     width: 1100px;
   }
-
-
-
-  /**
-   * ABOUT
-   */
-
   .about-banner .img-2 { margin-block-start: -140px; }
 
   .about-wrapper { grid-template-columns: 1fr 1fr; }
-
-
-
-  /**
-   * SERVICE
-   */
 
   .service .wrapper {
     grid-template-columns: repeat(3, 1fr);
@@ -1458,30 +1107,12 @@ body {
 
 }
 
-
-
-
-
-/**
- * responsive for large than 1600px screen
- */
-
 @media (min-width: 1600px) {
-
-  /**
-   * HEADER
-   */
 
   .header .contact-number .span { font-size: 2rem; }
 
   .header .contact-number ion-icon { font-size: 3rem; }
-
-
-
-  /**
-   * HERO
-   */
-
+   
   .hero-card ion-icon { font-size: 5rem; }
 
   .hero .card-title { font-size: 2rem; }
