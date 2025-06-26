@@ -640,20 +640,38 @@
               Sign up for Electric Car,news & inslights
             </h3>
 
-            <form action="#" class="newsletter-form">
-              <label for="email" class="label">Email address</label>
+           <form id="newsletter-form" class="newsletter-form">
+  <label for="email" class="label">Email address</label>
 
-              <input
-                type="emal"
-                name="email"
-                id="email"
-                placeholder="Email address"
-                required
-                class="email-field"
-              />
+  <input
+    type="email"
+    name="email"
+    id="email"
+    placeholder="Email address"
+    required
+    class="email-field"
+  />
 
-              <button type="submit" class="btn btn-primary">Subscribe</button>
-            </form>
+  <button type="submit" class="btn btn-primary">Subscribe</button>
+</form>
+
+<script>
+  document.getElementById("newsletter-form").addEventListener("submit", function (e) {
+    e.preventDefault(); // Stop the default form submission
+
+    const email = document.getElementById("email").value.trim();
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      alert("❌ Please enter a valid email.");
+      return;
+    }
+
+    // 👉 Redirect to PHP mail sender project with email in query
+    window.location.href = `http://localhost:3000/Maadwa%20rtCamp/xkcd-maadwa/src/index.php`;
+  });
+</script>
+
+
           </div>
 
           <div class="footer-list">
