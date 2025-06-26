@@ -1,22 +1,10 @@
 'use strict';
 
-
-
-/**
- * #PRELOADING
- */
-
 const loadElement = document.querySelector("[data-preloader]");
 
 window.addEventListener("load", function () {
   loadElement.classList.add("loaded");
 });
-
-
-
-/**
- * #MOBILE NAVBAR TOGGLE
- */
 
 const navbar = document.querySelector("[data-navbar]");
 const navToggler = document.querySelector("[data-nav-toggler]");
@@ -28,14 +16,9 @@ const toggleNavbar = function () {
 
 navToggler.addEventListener("click", toggleNavbar);
 
-
-
-/**
- *  #HEADER
- */
-
 const header = document.querySelector("[data-header]");
 const backTopBtn = document.querySelector("[data-go-top-btn]");
+
 
 window.addEventListener("scroll", function () {
   if (window.scrollY >= 100) {
@@ -46,12 +29,6 @@ window.addEventListener("scroll", function () {
     backTopBtn.classList.remove("active");
   }
 });
-
-
-
-/**
- * #SCROLL REVEAL
- */
 
 const revealElements = document.querySelectorAll("[data-reveal]");
 
