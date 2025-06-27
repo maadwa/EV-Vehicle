@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>EV Assistant - Your Electric Vehicle Guide</title>
+        <link rel="stylesheet" href="../static/css/chatbot.css">
+
+    </head>
+
+    <body>
+        <header class="header">
+            <div class="logo">⚡</div>
+            <div class="header-info">
+                <h1>EV Assistant</h1>
+                <p>Your intelligent electric vehicle guide</p>
+            </div>
+            <div class="status-indicator">
+                <div class="status-dot"></div>
+                Online
+            </div>
+        </header>
+
+        <div class="chat-container">
+            <div class="chat-messages" id="chatMessages">
+                <div class="welcome-screen" id="welcomeScreen">
+                    <div class="welcome-icon">🚗</div>
+                    <h2 class="welcome-title">Welcome to EV Assistant</h2>
+                    <p class="welcome-subtitle">I'm here to help you with everything about electric vehicles - from
+                        choosing the right EV to understanding charging, maintenance, and more!</p>
+
+                    <div class="quick-questions">
+                        <div class="quick-question"
+                            onclick="sendQuickQuestion('What are the benefits of owning an electric vehicle?')">
+                            <h3>🌱 EV Benefits</h3>
+                            <p>Learn about the advantages of electric vehicles</p>
+                        </div>
+                        <div class="quick-question"
+                            onclick="sendQuickQuestion('How do I charge my electric vehicle at home?')">
+                            <h3>🔌 Home Charging</h3>
+                            <p>Everything about charging your EV at home</p>
+                        </div>
+                        <div class="quick-question"
+                            onclick="sendQuickQuestion('What is the range of modern electric vehicles?')">
+                            <h3>📏 EV Range</h3>
+                            <p>Understanding electric vehicle driving range</p>
+                        </div>
+                        <div class="quick-question"
+                            onclick="sendQuickQuestion('How much does it cost to maintain an electric vehicle?')">
+                            <h3>💰 Maintenance Costs</h3>
+                            <p>Compare EV maintenance with traditional cars</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-container">
+                <div class="input-wrapper">
+                    <textarea class="message-input" id="messageInput"
+                        placeholder="Ask me anything about electric vehicles..." rows="1"></textarea>
+                    <button class="send-button" id="sendButton" onclick="sendMessage()">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <line x1="22" y1="2" x2="11" y2="13"></line>
+                            <polygon points="22,2 15,22 11,13 2,9"></polygon>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            const chatMessages = document.getElementById('chatMessages');
+            const messageInput = document.getElementById('messageInput');
+            const sendButton = document.getElementById('sendButton');
+            const welcomeScreen = document.getElementById('welcomeScreen');
+
+            let messageCount = 0;
+            // const evResponses = {
+            //     benefits: "Electric vehicles (EVs) offer numerous benefits including lower emissions, reduced fuel costs, and less maintenance compared to traditional vehicles. They are also quieter and can provide a smoother driving experience.",
+            //     charging: "Charging your EV at home is convenient and can be done using a standard outlet or a dedicated home charging station. Most EVs can be fully charged overnight, and many utilities offer special rates for off-peak charging.",
+            //     range: "Modern electric vehicles have significantly improved ranges, with many models offering over 200 miles on a single charge. Factors like driving style, terrain, and weather can affect range, but advancements in battery technology continue to enhance it.",
+            //     maintenance: "Electric vehicles generally have lower maintenance costs than gasoline cars due to fewer moving parts. They do not require oil changes, and brake wear is reduced thanks to regenerative braking systems. However, battery replacement can be a significant cost after several years.",
+            //     default: "I'm here to help! Please ask me anything about electric vehicles."
+            // };
+
+            function getEVResponse(message) {
+                const lowerMessage = message.toLowerCase();
+
+                if (lowerMessage.includes('benefit') || lowerMessage.includes('advantage') || lowerMessage.includes('why') && lowerMessage.includes('ev')) {
+                    return evResponses.benefits;
+                } else if (lowerMessage.includes('charg') && (lowerMessage.includes('home') || lowerMessage.includes('house'))) {
+                    return evResponses.charging;
+                } else if (lowerMessage.includes('range') || lowerMessage.includes('distance') || lowerMessage.includes('mile')) {
+                    return evResponses.range;
+                } else if (lowerMessage.includes('maintain') || lowerMessage.includes('cost') || lowerMessage.includes('service')) {
+                    return evResponses.maintenance;
+                } else {
+                    return evResponses.default;
+                }
+            }
+
+            function hideWelcomeScreen() {
+                if (welcomeScreen) {
+                    welcomeScreen.style.display = 'none';
+                }
+            }
+
+            function addMessage(content, isUser = false) {
+                hideWelcomeScreen();
+
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `message ${isUser ? 'user' : 'bot'}`;
+                messageDiv.style.animationDelay = `${messageCount * 0.1}s`;
+
+                const avatar = document.createElement('div');
+                avatar.className = `message-avatar ${isUser ? 'user-avatar' : 'bot-avatar'}`;
+                avatar.textContent = isUser ? 'U' : 'EV';
+
+                const messageContent = document.createElement('div');
+                messageContent.className = `message-content ${isUser ? 'user-message' : 'bot-message'}`;
+                messageContent.textContent = content;
+
+                messageDiv.appendChild(avatar);
+                messageDiv.appendChild(messageContent);
+
+                chatMessages.appendChild(messageDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+                messageCount++;
+            }
+
+            function addTypingIndicator() {
+                const typingDiv = document.createElement('div');
+                typingDiv.className = 'message bot';
+                typingDiv.id = 'typingIndicator';
+
+                const avatar = document.createElement('div');
+                avatar.className = 'message-avatar bot-avatar';
+                avatar.textContent = 'EV';
+
+                const indicator = document.createElement('div');
+                indicator.className = 'typing-indicator';
+                indicator.innerHTML = `
+                <span>EV Assistant is typing</span>
+                <div class="typing-dots">
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                </div>
+            `;
+
+                typingDiv.appendChild(avatar);
+                typingDiv.appendChild(indicator);
+                chatMessages.appendChild(typingDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+
+            function removeTypingIndicator() {
+                const indicator = document.getElementById('typingIndicator');
+                if (indicator) {
+                    indicator.remove();
+                }
+            }
+
+            async function sendMessage() {
+                const message = messageInput.value.trim();
+                if (!message) return;
+
+                addMessage(message, true);
+                messageInput.value = '';
+                sendButton.disabled = true;
+                addTypingIndicator();
+
+                const conversationId = "user-session";
+
+                try {
+                    const response = await fetch("http://localhost:8000/chat/", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            message: message,
+                            role: "user",
+                            conversation_id: conversationId
+                        })
+                    });
+
+                    const data = await response.json();
+                    removeTypingIndicator();
+
+                    if (response.ok) {
+                        addMessage(data.response, false);  // Display assistant response
+                    } else {
+                        addMessage("⚠️ Something went wrong: " + data.detail, false);
+                    }
+                } catch (err) {
+                    removeTypingIndicator();
+                    addMessage("⚠️ Error connecting to server.", false);
+                }
+
+                sendButton.disabled = false;
+                messageInput.focus();
+            }
+
+
+            function sendQuickQuestion(question) {
+                messageInput.value = question;
+                sendMessage();
+            }
+
+            // Auto-resize textarea
+            messageInput.addEventListener('input', function () {
+                this.style.height = 'auto';
+                this.style.height = Math.min(this.scrollHeight, 120) + 'px';
+            });
+
+            // Send on Enter (but not Shift+Enter)
+            messageInput.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    sendMessage();
+                }
+            });
+
+            // Focus input on load
+            messageInput.focus();
+        </script>
+    </body>
+
+</html>
