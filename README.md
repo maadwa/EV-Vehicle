@@ -92,9 +92,9 @@ $response = $client->chat()->create([
 2. A 6-digit code is sent via Gmail SMTP using PHPMailer.
 3. User verifies the code to complete subscription.
 
-## 📸 Screenshots
+## 📸 Demo
 
-> *(Add screenshots of your homepage, chatbot, blog section, and subscription popup here)*
+> [View the project demo here](https://drive.google.com/file/d/1PBPdHrf4hjAPPi4N13C7LALtAnQ-Fcow/view?usp=sharing)
 
 ## 🎯 Purpose
 
