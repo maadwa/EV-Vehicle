@@ -1,101 +1,120 @@
-# EV-Vehicle
+# EVionix – Electric Vehicle Awareness Platform with AI Chatbot
 
+EVionix is a dynamic web-based platform developed to educate users about Electric Vehicles (EVs) and promote sustainable transportation. The project combines informative content, real-time chatbot assistance, and a subscription system to deliver a complete learning experience.
 
-# ⚡ EV Discovery Insights – Email Subscription Project
+## 🌱 Features
 
-This project allows users to subscribe to receive the latest **Electric Vehicle (EV)** updates via email. It consists of a **frontend landing page** built with HTML, CSS, and JavaScript, and a **backend email subscription system** using PHP and PHPMailer with News API integration.
+- **Landing Page**  
+  A visually appealing introduction to EV technology highlighting benefits like zero emissions, energy efficiency, and reduced maintenance.
 
+- **Blog Section**  
+  In-depth, well-researched articles on EV topics including:
+  - Latest innovations
+  - Environmental impact
+  - Cost and performance comparisons
+  - Transition to green mobility
 
+- **AI-Powered Chatbot (Groq API)**  
+  Integrated chatbot answers common questions such as:
+  - Battery range & life
+  - Charging options and infrastructure
+  - EV vs. traditional vehicle comparisons
 
-## ✨ Features
+- **Email Subscription System**  
+  Users can subscribe to receive regular updates and articles. The backend:
+  - Built using **PHP**
+  - Utilizes **PHPMailer** with **Gmail SMTP**
+  - Sends verification emails to confirm subscriptions
 
-- 💡 Clean EV-themed landing page with a **subscribe form**
-- ✅ Validates email and sends a **verification code** to the user
-- 🔒 Verifies code input by user before subscription
-- 📬 Sends the latest **EV news** using [NewsAPI](https://newsapi.org/)
-- ❌ Unsubscribe link included in every mail
+## 🛠️ Tech Stack
 
----
+| Frontend         | Backend          | AI Integration | Email |
+|------------------|------------------|----------------|-------|
+| HTML, CSS, JS    | PHP              | Groq API       | PHPMailer (SMTP) |
 
-## 🔧 Technologies Used
+## 🔧 Installation & Setup
 
-- HTML, CSS, JavaScript
-- PHP 8+
-- [PHPMailer](https://github.com/PHPMailer/PHPMailer)
-- [NewsAPI](https://newsapi.org/)
-- Optional: [XAMPP](https://www.apachefriends.org/) / [WAMP](https://www.wampserver.com/) for local server
+### Prerequisites
+- PHP (>= 7.4)
+- Composer
+- Valid Gmail SMTP credentials
+- Groq API key
 
----
+### Steps
 
-## 🚀 Getting Started
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/maadwa/EV-Vehicle.git
+   ```
+   
 
-### 1. Clone the Project
+2. **Install PHPMailer**
 
-```bash
-git clone https://github.com/your-username/ev-discovery-insights.git
-````
+   ```bash
+   composer require phpmailer/phpmailer
+   ```
 
-### 2. Install PHPMailer via Composer
+3. **Configure Environment**
 
-```bash
-composer require phpmailer/phpmailer
-```
+   * Create a `.env` file or configure credentials in `config.php`
 
-### 3. Set Up `config.php`
+   ```env
+   GROQ_API_KEY=your_groq_api_key
+   SMTP_EMAIL=your_email@gmail.com
+   SMTP_PASSWORD=your_email_password
+   ```
 
-Create a `config.php` inside `src/`:
+4. **Database Setup**
+
+   * Update DB credentials in `config.php`.
+
+5. **Run the Application**
+
+   * Use a local server (e.g., XAMPP, WAMP) or deploy on a live server.
+
+## 🤖 Chatbot API
+
+The chatbot uses the [Groq API](https://groq.com/) to handle user queries related to EVs in real time.
 
 ```php
-<?php
-return [
-  'smtp_username' => 'your-email@gmail.com',
-  'smtp_password' => 'your-gmail-app-password',
-  'newsapi_key' => 'your-newsapi-key'
-];
+// Example: Sending query to Groq
+$response = $client->chat()->create([
+  'model' => 'mixtral-8x7b-32768',
+  'messages' => [
+    ['role' => 'user', 'content' => 'What is the range of an EV?'],
+  ],
+]);
 ```
 
-Use a **Gmail App Password**, not your main password.
+## 📬 Email Subscription Flow
+
+1. User enters email on the site.
+2. A 6-digit code is sent via Gmail SMTP using PHPMailer.
+3. User verifies the code to complete subscription.
+
+## 📸 Screenshots
+
+> *(Add screenshots of your homepage, chatbot, blog section, and subscription popup here)*
+
+## 🎯 Purpose
+
+This project aims to:
+
+* Educate the public about electric vehicles
+* Provide real-time assistance via AI
+* Encourage informed, eco-friendly transportation choices
+
+## 🧠 Skills Gained
+
+* Full-stack web development (PHP, JS, HTML/CSS)
+* API integration (Groq)
+* Email verification workflows
+* Understanding of EV tech and green mobility trends
+
+## 📄 License
+
+MIT License
 
 ---
 
-### 4. Run the Project
-
-Use a local server to serve the project:
-
-```bash
-php -S localhost:8000
-```
-
-Or place the entire folder inside your XAMPP `htdocs` and visit:
-
-```
-http://localhost/Projects/EV-Vehicle/index.html
-```
-
----
-
-## 🔁 How the Workflow Works
-
-1. User enters email on the landing page
-2. Gets redirected to the PHP project
-3. Receives verification code in email
-4. After successful code entry:
-
-   * Email is saved to `registered_emails.txt`
-   * A latest EV news article is fetched using NewsAPI
-   * The news article is emailed to the user
-
----
-
-## 🧪 Sample NewsAPI Query
-
-```url
-https://newsapi.org/v2/everything?q=electric%20vehicles&sortBy=publishedAt&pageSize=1&apiKey=YOUR_API_KEY
-```
-
-
-
-## 🙋‍♀️ Author
-
-Developed by [Maadwa Krishnaa](https://github.com/maadwa)
-             [Keerttna Radhakrishnan](https://github.com/Keerttna)
+### 🚀 Developed by [Maadwa Krishnaa](https://github.com/maadwa) and [Keerttna Radhakrishnan](https://github.com/Keerttna)
