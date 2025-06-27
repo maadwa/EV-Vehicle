@@ -12,7 +12,7 @@ EVionix is a dynamic web-based platform developed to educate users about Electri
   - Latest innovations
   - Environmental impact
   - Cost and performance comparisons
-  - Transition to green mobility
+  - Transition to green mobility.
 
 - **AI-Powered Chatbot (Groq API)**  
   Integrated chatbot answers common questions such as:
