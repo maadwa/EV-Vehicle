@@ -1,4 +1,4 @@
-# EVionix – Electric Vehicle Awareness Platform with AI Chatbot
+# EVionix – Discover EV insights with AI Chatbot
 
 EVionix is a dynamic web-based platform developed to educate users about Electric Vehicles (EVs) and promote sustainable transportation. The project combines informative content, real-time chatbot assistance, and a subscription system to deliver a complete learning experience.
 
