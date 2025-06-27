@@ -30,7 +30,7 @@ EVionix is a dynamic web-based platform developed to educate users about Electri
 
 | Frontend         | Backend          | AI Integration | Email |
 |------------------|------------------|----------------|-------|
-| HTML, CSS, JS    | PHP, Python      | Groq API       | PHPMailer (SMTP) |
+| HTML, CSS, JS    | PHP, Python      |    Groq API    | PHPMailer (SMTP) |
 
 ## 🔧 Installation & Setup
 
