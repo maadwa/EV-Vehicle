@@ -97,5 +97,5 @@ https://newsapi.org/v2/everything?q=electric%20vehicles&sortBy=publishedAt&pageS
 
 ## 🙋‍♀️ Author
 
-Developed by [Maadwa Krishnaa](https://github.com/your-profile)
+Developed by [Maadwa Krishnaa](https://github.com/maadwa)
              [Keerttna Radhakrishnan](https://github.com/Keerttna)
